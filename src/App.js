@@ -44,12 +44,19 @@ class App extends Component {
     })
   }
 
+  editCourse=(index,value)=>{
+    let {courses} =this.state;
+    let course= courses[index];
+    course ["name"] =value;
+    this.setState ({courses})
+  }
+
  
 
   render(){
     const {courses}=this.state
     const courseliste = courses.map((course,index)=>{
-      return(<List deleteCourse={this.deleteCourse} index={index}  detail={course} key={index}  />)
+      return(<List deleteCourse={this.deleteCourse} index={index}  detail={course} key={index} editCourse={this.editCourse} />)
     })
     
     return(
